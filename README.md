@@ -1,45 +1,51 @@
-# My Version of Termo 🟩
+# My Version of Termo
 
-A Python-based clone of [Termo](https://term.ooo/) — the Brazilian version of Wordle. Guess the 5-letter Portuguese word in 6 attempts!
+Clone em Python do [Termo](https://term.ooo/), a versão brasileira do Wordle. O objetivo é adivinhar uma palavra de cinco letras em português pelo terminal.
 
-## Features
+## Versões
 
-- **Standard mode** (`termo_demo.py`) — classic Termo gameplay in the terminal
-- **AI mode** (`termo_demo_ia.py`) — an AI opponent that tries to guess the word automatically
-- Word list from `palavras_termo.py`
+- **Demo original** (`termo_demo.py`): palavra fixa (`pilha`) e até cinco tentativas válidas.
+- **Versão IA** (`termo_demo_ia.py`): palavra aleatória e até seis tentativas válidas. Apesar do nome, quem joga é você; não há um adversário automático.
+- As duas versões usam a lista de palavras de `palavras_termo.py`.
 
-## How to Run
+## Como rodar
 
-Make sure you have Python 3 installed, then:
+Com Python 3 instalado, execute na pasta do projeto:
 
 ```bash
-# Standard mode
+# Demo original
 python termo_demo.py
 
-# AI mode
+# Versão IA
 python termo_demo_ia.py
 ```
 
-## Build Executable
+## Executáveis
 
-You can package the game into a standalone executable using [PyInstaller](https://pyinstaller.org/):
+Os arquivos `.exe` não ficam mais no repositório e serão publicados em **Releases**. A pasta `dist/` contém apenas saídas locais de compilação e é ignorada pelo Git.
+
+Para gerar seus próprios executáveis, instale o [PyInstaller](https://pyinstaller.org/) e use os arquivos `.spec` existentes:
 
 ```bash
 pip install pyinstaller
 
-# Standard version
-pyinstaller --onefile termo_demo.py
+# Demo original
+pyinstaller termo_demo.spec
 
-# AI version
-pyinstaller --onefile termo_demo_ia.py
+# Versão IA
+pyinstaller termo_versao_ia.spec
 ```
 
-The executables will be generated in the `dist/` folder.
+Para gerar `.exe`, rode esses comandos no Windows. Os resultados ficam em `dist/termo_demo.exe` e `dist/termo_versao_ia.exe`.
 
-## About
+O arquivo [instructions.txt](instructions.txt) também traz comandos para Windows, partindo dos scripts `.py` com `--onefile --name`. Esses comandos usam nomes alternativos: `termo_beta_v1.exe` e `termo_beta_v1_ia.exe`.
 
-This is a personal project built for fun and learning. Inspired by the original [Termo](https://term.ooo/) by Fernando Serbetto.
+As pastas `__pycache__/`, `build/`, `dist/` e `.venv/` são ignoradas pelo Git. Os arquivos `.spec` continuam versionados.
 
-## License
+## Sobre
 
-See [LICENSE](LICENSE) for details.
+Projeto pessoal para aprender e se divertir, inspirado no [Termo](https://term.ooo/) de Fernando Serbetto.
+
+## Licença
+
+O repositório ainda não contém um arquivo `LICENSE`.
